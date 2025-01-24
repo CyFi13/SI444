@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_margin="40dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/portraitText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:text="Hello World!" />
+
+    <GridLayout
+        android:id="@+id/buttonPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alignmentMode="alignBounds"
+        android:columnCount="4"
+        android:rowCount="5"
+        android:columnOrderPreserved="true"
+        android:rowOrderPreserved="true"
+        app:layout_constraintTop_toBottomOf="@+id/portraitText"
+        >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_row="0"
+            android:layout_column="0" />
+
+        <Button
+            android:layout_row="0"
+            android:layout_column="1" />
+
+        <Button
+            android:layout_row="0"
+            android:layout_column="2" />
+
+        <Button
+
+            android:layout_row="0"
+            android:layout_column="3" />
+
+        <Button
+            android:layout_row="1"
+            android:layout_column="0"
+            />
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
