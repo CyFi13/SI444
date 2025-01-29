@@ -53,15 +53,39 @@
     </style>
 
     <style name="landscape_button_light_gray">
-
+        <item name="backgroundTint">@color/light_gray</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textSize">10sp</item>
     </style>
 
     <style name="landscape_button_gray">
-
+        <item name="backgroundTint">@color/gray</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textSize">10sp</item>
     </style>
 
     <style name="landscape_button_orange">
-
+        <item name="backgroundTint">@color/orange</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textSize">10sp</item>
     </style>
 
 </resources>

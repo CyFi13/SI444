@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MenuExamples</string>
+    <string name="show" />
+    <string name="forward" />
+    <string name="back" />
+    <string name="red" />
+    <string name="white" />
+    <string name="blue" />
 </resources>
