@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">A1_Alvis,Tristen</string>
+    <string name="second">2<sup><small>nd</small></sup></string>
+    <string name="x_squared">x<sup><small>2</small></sup></string>
+    <string name="x_cubed">x<sup><small>3</small></sup></string>
+    <string name="x_power_y">x<sup><small>y</small></sup></string>
+    <string name="e_squared">e<sup><small>2</small></sup></string>
+    <string name="ten_power_x">10<sup><small>x</small></sup></string>
+    <string name="y_root_x"><sup><small>y</small></sup>\u221Ax</string>
+    <string name="log_10">log<sub><small>10</small></sub></string>
+    <string name="pi">\u03C0</string>
+
+
 </resources>
