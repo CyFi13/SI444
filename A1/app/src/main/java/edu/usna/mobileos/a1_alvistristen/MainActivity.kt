@@ -18,85 +18,156 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         // portrait orientation
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            textView = findViewById(R.id.portraitText)
-            val buttonGrid = findViewById<GridLayout>(R.id.porButtonGrid)
+            textView = findViewById(R.id.textview)
+            val buttonGrid = findViewById<GridLayout>(R.id.button_grid)
 
             // iterate through buttons in grid and give them onclick listeners
             for(i in 0 until buttonGrid.childCount) {
                 buttonGrid.getChildAt(i).setOnClickListener(this)
             }
-
-            val button1: Button = findViewById(R.id.port_button1)
-            button1.setOnClickListener(this)
         }
         // landscape orientation
-        else{
+        else {
             //
+            textView = findViewById(R.id.textview)
+            val buttonGrid = findViewById<GridLayout>(R.id.button_grid)
+
+            for(i in 0 until buttonGrid.childCount) {
+                buttonGrid.getChildAt(i).setOnClickListener(this)
+            }
         }
     }
 
     override fun onClick(v: View?) {
+        if(textView.text.length == 1 && textView.text.contains("0"))    // removes initial placeholder 0
+            textView.text = ""
+
         when(v?.id) {
-            R.id.port_button1 -> {
+            R.id.ac -> {      // AC button: clears calculator
                 textView.text = "0"
             }
-            R.id.port_button2 -> {
-                val text: String = "-" + textView.text
-                textView.text = text
+            R.id.signchange-> {     // +/- button: changes sign
+                if(textView.text.contains("-")) {
+                    textView.text = textView.text.removePrefix("-")
+                }
+                else {
+                    val text: String = "-" + textView.text
+                    textView.text = text
+                }
             }
-            R.id.port_button3 -> {
-                val text: String = textView.append("%")
-                textView.text = text
+            R.id.percent -> {   // percent button: adds a percent sign
+                textView.text = textView.text.toString() + "%"
             }
-            R.id.port_button4 -> {
-                textView.text = "cat"
+            R.id.divide -> {    // division button: adds a division sign
+                textView.text = textView.text.toString() + "\u00F7"
             }
-            R.id.port_button5 -> {
-                textView.text = "7"
+            R.id.multiply -> {
+                textView.text = textView.text.toString() + "\u00D7"
             }
-            R.id.port_button6 -> {
-                textView.text = "7"
+            R.id.subtract -> {
+                textView.text = textView.text.toString() + "-"
             }
-            R.id.port_button7 -> {
-                textView.text = "7"
+            R.id.add -> {
+                textView.text = textView.text.toString() + "+"
             }
-            R.id.port_button8 -> {
-                textView.text = "7"
+            R.id.decimal -> {
+                textView.text = textView.text.toString() + "."
             }
-            R.id.port_button9 -> {
-                textView.text = "7"
+            R.id.equal -> {     // equal button: just resets screen in this case
+                if(textView.text == "2026") {   // for fun function
+                    textView.text = "( ͡° ͜ʖ ͡°)"
+                }
+                else if(textView.text == "12272003") {
+                    textView.text = "ඞ ඞ ඞ ඞ ඞ"
+                }
+                else {
+                    textView.text = "0"
+                }
             }
-            R.id.port_button10 -> {
-                textView.text = "7"
+            R.id.b0 -> {
+                textView.text = textView.text.toString() + "0"
             }
-            R.id.port_button11 -> {
-                textView.text = "7"
+            R.id.b1 -> {
+                textView.text = textView.text.toString() + "1"
             }
-            R.id.port_button12 -> {
-                textView.text = "7"
+            R.id.b2-> {
+                textView.text = textView.text.toString() + "2"
             }
-            R.id.port_button13 -> {
-                textView.text = "7"
+            R.id.b3 -> {
+                textView.text = textView.text.toString() + "3"
             }
-            R.id.port_button14 -> {
-                textView.text = "7"
+            R.id.b4 -> {
+                textView.text = textView.text.toString() + "4"
             }
-            R.id.port_button15 -> {
-                textView.text = "7"
+            R.id.b5 -> {
+                textView.text = textView.text.toString() + "5"
             }
-            R.id.port_button16 -> {
-                textView.text = "7"
+            R.id.b6 -> {
+                textView.text = textView.text.toString() + "6"
             }
-            R.id.port_button17 -> {
-                textView.text = "7"
+            R.id.b7 -> {
+                textView.text = textView.text.toString() + "7"
             }
-            R.id.port_button18 -> {
-                textView.text = "7"
+            R.id.b8 -> {
+                textView.text = textView.text.toString() + "8"
             }
-            R.id.port_button19 -> {
-                textView.text = "7"
+            R.id.b9 -> {
+                textView.text = textView.text.toString() + "9"
             }
-
+            R.id.left_parenthesis -> {
+                textView.text = textView.text.toString() + "("
+            }
+            R.id.right_parenthesis -> {
+                textView.text = textView.text.toString() + ")"
+            }
+            R.id.mc -> {
+            }
+            R.id.mplus -> {
+            }
+            R.id.mminus -> {
+            }
+            R.id.mr -> {
+            }
+            R.id.ln -> {
+                textView.text = "ln(" + textView.text.toString() + ")"
+            }
+            R.id.factorial -> {
+                textView.text = textView.text.toString() + "!"
+            }
+            R.id.sin -> {
+                textView.text = "sin(" + textView.text.toString() + ")"
+            }
+            R.id.cos-> {
+                textView.text = "cos(" + textView.text.toString() + ")"
+            }
+            R.id.tan -> {
+                textView.text = "tan(" + textView.text.toString() + ")"
+            }
+            R.id.e -> {
+                textView.text = textView.text.toString() + "e"
+            }
+            R.id.EE -> {
+                textView.text = textView.text.toString() + "EE"
+            }
+            R.id.rad -> {
+            }
+            R.id.sinh -> {
+                textView.text = "sinh(" + textView.text.toString() + ")"
+            }
+            R.id.cosh -> {
+                textView.text = "cos(" + textView.text.toString() + ")"
+            }
+            R.id.tanh -> {
+                textView.text = "tanh(" + textView.text.toString() + ")"
+            }
+            R.id.rand -> {
+            }
+            R.id.pi -> {
+                textView.text = textView.text.toString() + "\\u03C0"
+            }
+            else -> {
+                textView.text = textView.text.toString() + "#"
+            }
         }
     }
 

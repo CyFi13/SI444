@@ -8,310 +8,313 @@
     android:background="@color/black">
 
     <TextView
-        android:id="@+id/landscapeText"
+        android:id="@+id/textview"
+        android:maxLines="1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight=".1667"
         android:gravity="end|bottom"
         android:text="0"
         android:textSize="60sp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:ellipsize="end" />
 
     <GridLayout
+        android:id="@+id/button_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight=".8333">
         <Button
-            android:id="@+id/lan_button1"
+            android:id="@+id/left_parenthesis"
             android:text="("
             style="@style/landscape_button_dark_gray"
             android:layout_row="0"
             android:layout_column="0" />
         <Button
-            android:id="@+id/lan_button2"
+            android:id="@+id/right_parenthesis"
             android:text=")"
             style="@style/landscape_button_dark_gray"
             android:layout_row="0"
             android:layout_column="1" />
         <Button
-            android:id="@+id/lan_button3"
+            android:id="@+id/mc"
             android:text="mc"
             style="@style/landscape_button_dark_gray"
             android:layout_row="0"
             android:layout_column="2" />
         <Button
-            android:id="@+id/lan_button4"
+            android:id="@+id/mplus"
             android:text="m+"
             style="@style/landscape_button_dark_gray"
             android:layout_row="0"
             android:layout_column="3" />
         <Button
-            android:id="@+id/lan_button5"
+            android:id="@+id/mminus"
             android:text="m-"
             style="@style/landscape_button_dark_gray"
             android:layout_row="0"
             android:layout_column="4" />
         <Button
-            android:id="@+id/lan_button6"
+            android:id="@+id/mr"
             android:text="mr"
             style="@style/landscape_button_dark_gray"
             android:layout_row="0"
             android:layout_column="5" />
         <Button
-            android:id="@+id/lan_button7"
+            android:id="@+id/ac"
             android:text="AC"
             style="@style/landscape_button_light_gray"
             android:layout_row="0"
             android:layout_column="6" />
         <Button
-            android:id="@+id/lan_button8"
+            android:id="@+id/signchange"
             android:text="+/-"
             style="@style/landscape_button_light_gray"
             android:layout_row="0"
             android:layout_column="7" />
         <Button
-            android:id="@+id/lan_button9"
+            android:id="@+id/percent"
             android:text="%"
             style="@style/landscape_button_light_gray"
             android:layout_row="0"
             android:layout_column="8" />
         <Button
-            android:id="@+id/lan_button10"
+            android:id="@+id/divide"
             android:text="\u00F7"
             style="@style/landscape_button_orange"
             android:layout_row="0"
             android:layout_column="9" />
         <Button
-            android:id="@+id/lan_button11"
+            android:id="@+id/b2nd"
             android:text="@string/second"
             style="@style/landscape_button_dark_gray"
             android:layout_row="1"
             android:layout_column="0" />
         <Button
-            android:id="@+id/lan_button12"
+            android:id="@+id/x_power2"
             android:text="@string/x_squared"
             style="@style/landscape_button_dark_gray"
             android:layout_row="1"
             android:layout_column="1" />
         <Button
-            android:id="@+id/lan_button13"
+            android:id="@+id/x_power3"
             android:text="@string/x_cubed"
             style="@style/landscape_button_dark_gray"
             android:layout_row="1"
             android:layout_column="2" />
         <Button
-            android:id="@+id/lan_button14"
+            android:id="@+id/x_powery"
             android:text="@string/x_power_y"
             style="@style/landscape_button_dark_gray"
             android:layout_row="1"
             android:layout_column="3" />
         <Button
-            android:id="@+id/lan_button15"
+            android:id="@+id/e_power2"
             android:text="@string/e_squared"
             style="@style/landscape_button_dark_gray"
             android:layout_row="1"
             android:layout_column="4" />
         <Button
-            android:id="@+id/lan_button16"
+            android:id="@+id/b10_powerx"
             android:text="@string/ten_power_x"
             style="@style/landscape_button_dark_gray"
             android:layout_row="1"
             android:layout_column="5" />
         <Button
-            android:id="@+id/lan_button17"
+            android:id="@+id/b7"
             android:text="7"
             style="@style/landscape_button_gray"
             android:layout_row="1"
             android:layout_column="6" />
         <Button
-            android:id="@+id/lan_button18"
+            android:id="@+id/b8"
             android:text="8"
             style="@style/landscape_button_gray"
             android:layout_row="1"
             android:layout_column="7" />
         <Button
-            android:id="@+id/lan_button19"
+            android:id="@+id/b9"
             android:text="9"
             style="@style/landscape_button_gray"
             android:layout_row="1"
             android:layout_column="8" />
         <Button
-            android:id="@+id/lan_button20"
+            android:id="@+id/multiply"
             android:text="\u00D7"
             style="@style/landscape_button_orange"
             android:layout_row="1"
             android:layout_column="9" />
         <Button
-            android:id="@+id/lan_button21"
+            android:id="@+id/inverse"
             android:text="1/x"
             style="@style/landscape_button_dark_gray"
             android:layout_row="2"
             android:layout_column="0" />
         <Button
-            android:id="@+id/lan_button22"
-            android:text="\u221ax"
+            android:id="@+id/sqroot"
+            android:text="@string/x_square_root"
             style="@style/landscape_button_dark_gray"
             android:layout_row="2"
             android:layout_column="1" />
         <Button
-            android:id="@+id/lan_button23"
+            android:id="@+id/cube_root"
             android:text="\u221Bx"
             style="@style/landscape_button_dark_gray"
             android:layout_row="2"
             android:layout_column="2" />
         <Button
-            android:id="@+id/lan_button24"
+            android:id="@+id/y_root"
             android:text="@string/y_root_x"
             style="@style/landscape_button_dark_gray"
             android:layout_row="2"
             android:layout_column="3" />
         <Button
-            android:id="@+id/lan_button25"
+            android:id="@+id/ln"
             android:text="ln"
             style="@style/landscape_button_dark_gray"
             android:layout_row="2"
             android:layout_column="4" />
         <Button
-            android:id="@+id/lan_button26"
+            android:id="@+id/log10"
             android:text="@string/log_10"
             style="@style/landscape_button_dark_gray"
             android:layout_row="2"
             android:layout_column="5" />
         <Button
-            android:id="@+id/lan_button27"
+            android:id="@+id/b4"
             android:text="4"
             style="@style/landscape_button_gray"
             android:layout_row="2"
             android:layout_column="6" />
         <Button
-            android:id="@+id/lan_button28"
+            android:id="@+id/b5"
             android:text="5"
             style="@style/landscape_button_gray"
             android:layout_row="2"
             android:layout_column="7" />
         <Button
-            android:id="@+id/lan_button29"
+            android:id="@+id/b6"
             android:text="6"
             style="@style/landscape_button_gray"
             android:layout_row="2"
             android:layout_column="8" />
         <Button
-            android:id="@+id/lan_button30"
+            android:id="@+id/subtract"
             android:text="-"
             style="@style/landscape_button_orange"
             android:layout_row="2"
             android:layout_column="9" />
         <Button
-            android:id="@+id/lan_button31"
+            android:id="@+id/factorial"
             android:text="x!"
             style="@style/landscape_button_dark_gray"
             android:layout_row="3"
             android:layout_column="0" />
         <Button
-            android:id="@+id/lan_button32"
+            android:id="@+id/sin"
             android:text="sin"
             style="@style/landscape_button_dark_gray"
             android:layout_row="3"
             android:layout_column="1" />
         <Button
-            android:id="@+id/lan_button33"
+            android:id="@+id/cos"
             android:text="cos"
             style="@style/landscape_button_dark_gray"
             android:layout_row="3"
             android:layout_column="2" />
         <Button
-            android:id="@+id/lan_button34"
+            android:id="@+id/tan"
             android:text="tan"
             style="@style/landscape_button_dark_gray"
             android:layout_row="3"
             android:layout_column="3" />
         <Button
-            android:id="@+id/lan_button35"
+            android:id="@+id/e"
             android:text="e"
             style="@style/landscape_button_dark_gray"
             android:layout_row="3"
             android:layout_column="4" />
         <Button
-            android:id="@+id/lan_button36"
+            android:id="@+id/EE"
             android:text="EE"
             style="@style/landscape_button_dark_gray"
             android:layout_row="3"
             android:layout_column="5" />
         <Button
-            android:id="@+id/lan_button37"
+            android:id="@+id/b1"
             android:text="1"
             style="@style/landscape_button_gray"
             android:layout_row="3"
             android:layout_column="6" />
         <Button
-            android:id="@+id/lan_button38"
+            android:id="@+id/b2"
             android:text="2"
             style="@style/landscape_button_gray"
             android:layout_row="3"
             android:layout_column="7" />
         <Button
-            android:id="@+id/lan_button39"
+            android:id="@+id/b3"
             android:text="3"
             style="@style/landscape_button_gray"
             android:layout_row="3"
             android:layout_column="8" />
         <Button
-            android:id="@+id/lan_button40"
+            android:id="@+id/add"
             android:text="+"
             style="@style/landscape_button_orange"
             android:layout_row="3"
             android:layout_column="9" />
         <Button
-            android:id="@+id/lan_button41"
+            android:id="@+id/rad"
             android:text="Rad"
             style="@style/landscape_button_dark_gray"
             android:layout_row="4"
             android:layout_column="0" />
         <Button
-            android:id="@+id/lan_button42"
+            android:id="@+id/sinh"
             android:text="sinh"
             style="@style/landscape_button_dark_gray"
             android:layout_row="4"
             android:layout_column="1" />
         <Button
-            android:id="@+id/lan_button43"
+            android:id="@+id/cosh"
             android:text="cosh"
             style="@style/landscape_button_dark_gray"
             android:layout_row="4"
             android:layout_column="2" />
         <Button
-            android:id="@+id/lan_button44"
+            android:id="@+id/tanh"
             android:text="tanh"
             style="@style/landscape_button_dark_gray"
             android:layout_row="4"
             android:layout_column="3" />
         <Button
-            android:id="@+id/lan_button45"
+            android:id="@+id/pi"
             android:text="@string/pi"
             style="@style/landscape_button_dark_gray"
             android:layout_row="4"
             android:layout_column="4" />
         <Button
-            android:id="@+id/lan_button46"
+            android:id="@+id/rand"
             android:text="Rand"
             style="@style/landscape_button_dark_gray"
             android:layout_row="4"
             android:layout_column="5" />
         <Button
-            android:id="@+id/lan_button47"
+            android:id="@+id/b0"
             android:text="0"
             style="@style/landscape_button_gray"
             android:layout_row="4"
             android:layout_column="6"
             android:layout_columnSpan="2"/>
         <Button
-            android:id="@+id/lan_button49"
+            android:id="@+id/decimal"
             android:text="."
             style="@style/landscape_button_gray"
             android:layout_row="4"
             android:layout_column="8" />
         <Button
-            android:id="@+id/lan_button50"
+            android:id="@+id/equal"
             android:text="="
             style="@style/landscape_button_orange"
             android:layout_row="4"

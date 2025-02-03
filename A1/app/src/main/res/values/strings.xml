@@ -9,6 +9,8 @@
     <string name="y_root_x"><sup><small>y</small></sup>\u221Ax</string>
     <string name="log_10">log<sub><small>10</small></sub></string>
     <string name="pi">\u03C0</string>
+    <string name="x_square_root">\u221ax</string>
+    <string name="division">\u00F7</string>
 
 
 </resources>
