@@ -9,6 +9,15 @@ import android.widget.EditText
 import android.widget.GridLayout
 import android.widget.TextView
 
+/**
+ *
+ * Author:      MIDN Tristen Alvis, m260102@usna.edu
+ * Date:        3 Feb 2025
+ * Description: Implementation of iPhone5s calculator user interface
+ * in both portrait and landscape modes. Does not calculate anything
+ * and only some buttons are programmed to print what they actually
+ * represent.
+ */
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     // instance properties
     lateinit var textView: TextView
@@ -38,6 +47,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    /**
+     * This method overrides onClick() to provide custom
+     */
     override fun onClick(v: View?) {
         if(textView.text.length == 1 && textView.text.contains("0"))    // removes initial placeholder 0
             textView.text = ""
@@ -163,7 +175,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.rand -> {
             }
             R.id.pi -> {
-                textView.text = textView.text.toString() + "\\u03C0"
+                textView.text = textView.text.toString() + "\u03C0"
             }
             else -> {
                 textView.text = textView.text.toString() + "#"
