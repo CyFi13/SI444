@@ -5,9 +5,10 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <!-- Custom Theme for apple clone calculator: makes top and bottom bars same color
+    as app background-->
     <style name="Theme.A1_AlvisTristen" parent="Theme.Material3.Dark.NoActionBar" >
         <item name="android:statusBarColor">@color/black</item>
-
         <item name="android:navigationBarColor">@color/black</item>
     </style>
 </resources>
