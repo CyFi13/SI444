@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">A2_AlvisTristen</string>
+    <string name="show">show</string>
+    <string name="forward">forward</string>
+    <string name="back">back</string>
+    <string name="bookmarks">bookmarks</string>
+    <string name="add_to_bookmarks">add to bookmarks</string>
+    <string name="go">GO</string>
+</resources>
