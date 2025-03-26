@@ -27,5 +27,12 @@
         android:text="run background task"
         android:onClick="runTask"/>
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/button"
+        android:text="Change content"
+        android:onClick="generateContent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

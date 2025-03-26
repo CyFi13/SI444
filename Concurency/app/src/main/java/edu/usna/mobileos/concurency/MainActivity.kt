@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,17 +19,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun runTask(v: View?) {
+            // VERSION 2a
+            // Running a task in a separate thread created using an implicit Runnable
+            val thread = Thread {
+                Log.i(TAG, "Runnable Started")
+                try {
+                    for (i in 0..4) {
 
-        // VERSION 0
-        // Running a task on the UI Thread
-        Log.i(TAG, "Blocking Task Started")
-        try {
-            // simulate a long-running task
-            Thread.sleep(5000)
-            outputText.text = "Task Complete"
-        } catch (e: InterruptedException) {
-            e.printStackTrace()
-        }
-        Log.i(TAG, "Blocking Task Finished")
+                        runOnUiThread { outputText.text = "Current Count = $i" }
+                        Thread.sleep(2000) //pause for 2 seconds
+                    }
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+                Log.i(TAG, "Runnable Finished")
+            }
+            thread.start()
+    }
+
+    fun generateContent(view: View?) {
+        outputText.text = "Random number: \n ${Random.nextInt()}"
     }
 }
