@@ -10,7 +10,7 @@ import java.io.IOException
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ToDoListener {
     lateinit var prefs: SharedPreferences
     lateinit var todos: ArrayList<String>
     val FILENAME = "filename1"
@@ -22,6 +22,11 @@ class MainActivity : AppCompatActivity() {
         val todoView: RecyclerView = findViewById(R.id.todo_list)
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this)
+
+        todos.add("test")
+
+        val adapter = ToDoAdapter(todos, this)
+        todoView.adapter = adapter
     }
 
     override fun onPause() {
@@ -53,6 +58,10 @@ class MainActivity : AppCompatActivity() {
             Log.e("SI444", "IOException writing file $filename")
             return null
         }
+    }
+
+    override fun onItemClick(todo: String) {
+        TODO("Not yet implemented")
     }
 }
 
