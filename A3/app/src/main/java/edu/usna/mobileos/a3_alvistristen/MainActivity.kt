@@ -32,8 +32,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // get saved todos from savefile
-        var saved_todos: ArrayList<ToDo> = getToDosFromFile(SAVE_FILE) as ArrayList<ToDo>
-        todos.addAll(saved_todos)
+        if(getToDosFromFile(SAVE_FILE) != null) {
+            var saved_todos: ArrayList<ToDo> = getToDosFromFile(SAVE_FILE) as ArrayList<ToDo>
+            todos.addAll(saved_todos)
+        }
 
         todoView = findViewById(R.id.todo_list)
         prefs = PreferenceManager.getDefaultSharedPreferences(this)
