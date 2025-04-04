@@ -1,26 +1,35 @@
 package edu.usna.mobileos.a3_alvistristen
 
+import android.view.ContextMenu
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
-class TextItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class TextItemViewHolder(view: View): RecyclerView.ViewHolder(view), View.OnCreateContextMenuListener {
     val textView: TextView = view.findViewById(R.id.todoTextView)
 
     /* sets the TextView text and onClickListener */
-    fun bind(todo: String, listener: ToDoListener) {
-        textView.text = todo
-        textView.setOnClickListener{ listener.onItemClick(todo) }
+    fun bind(todo: ToDo) {
+        textView.text = todo.title + " " + todo.description + " " + todo.dateCreated
+        textView.setOnCreateContextMenuListener(this)
+    }
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        menu?.add(adapterPosition, R.id.show_detail, 1, "Show")
+        menu?.add(adapterPosition, R.id.edit_detail, 2, "Edit")
+        menu?.add(adapterPosition, R.id.delete_item, 3, "Delete")
     }
 }
 
-interface ToDoListener {
-    fun onItemClick(todo: String)
-}
-
-class ToDoAdapter(val data: ArrayList<String>, val listener: ToDoListener) : RecyclerView.Adapter<TextItemViewHolder>() {
+class ToDoAdapter(val data: ArrayList<ToDo>) : RecyclerView.Adapter<TextItemViewHolder>() {
     /* returns number of items */
     override fun getItemCount() = data.size
 
@@ -34,6 +43,6 @@ class ToDoAdapter(val data: ArrayList<String>, val listener: ToDoListener) : Rec
 
     /* binds url data and listener to the ViewHolder */
     override fun onBindViewHolder(holder: TextItemViewHolder, position: Int) {
-        holder.bind(data[position], listener)
+        holder.bind(data[position])
     }
 }

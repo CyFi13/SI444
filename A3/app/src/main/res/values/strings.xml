@@ -3,4 +3,7 @@
     <string name="show_detail">Show Detail</string>
     <string name="edit_detail">Edit Detail</string>
     <string name="delete_item">Delete Item</string>
+    <string name="add">add</string>
+    <string name="enter_description_here">Enter Description Here</string>
+    <string name="enter_title_here">Enter Title Here</string>
 </resources>
