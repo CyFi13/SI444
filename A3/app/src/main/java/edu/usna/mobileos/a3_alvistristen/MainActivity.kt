@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var prefs: SharedPreferences
     lateinit var todoView: RecyclerView
     var todos: ArrayList<ToDo> = ArrayList<ToDo>()
-    val requestCode = 260102
+    val requestCode1 = 260102
+    val requestCode2 = 260103
     val SAVE_FILE = "filename1"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // get saved todos from savefile
-        var saved_todos: ArrayList<ToDo> = getToDosFromFile(SAVE_FILE) as ArrayList<ToDo>
+        if (getToDosFromFile(SAVE_FILE) != null)
+            var saved_todos: ArrayList<ToDo> = getToDosFromFile(SAVE_FILE) as ArrayList<ToDo>
         todos.addAll(saved_todos)
 
         todoView = findViewById(R.id.todo_list)
@@ -51,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.add -> {
                 val addToDo = Intent(this, AddToDosActivity::class.java)
-                startActivityForResult(addToDo, requestCode)
+                startActivityForResult(addToDo, requestCode1)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -60,11 +62,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == this.requestCode) {
+        if(requestCode == this.requestCode1) {
             if(resultCode == RESULT_OK) {
                 var todo: Serializable? = data?.getSerializableExtra("todos")
                 todos.add(todo as ToDo)
                 Log.i("SI444", "add todo ("  + todo.title + " " + todo.description + " " + todo.dateCreated + ") successful")
+            }
+        }
+        if(requestCode == this.requestCode2) {
+            if(requestCode == RESULT_OK) {
+                //val position: Int? = data?.getIntExtra("position")
+                //val toDo: Serializable? = data?.getSerializableExtra("toDo")
+                //todos[position] = toDo as ToDo
             }
         }
     }
@@ -113,7 +122,10 @@ class MainActivity : AppCompatActivity() {
                 dialog.show(supportFragmentManager, "SimpleAlertDialog")
             }
             R.id.edit_detail -> {
-
+                val editToDoIntent = Intent(this, AddToDosActivity::class.java)
+                editToDoIntent.putExtra("ToDoItem", toDoItem)
+                editToDoIntent.putExtra("ToDoIndex", position)
+                startActivityForResult(editToDoIntent, requestCode2)
             }
             R.id.delete_item -> {
                 todos.removeAt(position)
