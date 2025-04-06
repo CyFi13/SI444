@@ -6,4 +6,5 @@
     <string name="add">add</string>
     <string name="enter_description_here">Enter Description Here</string>
     <string name="enter_title_here">Enter Title Here</string>
+    <string name="delete" />
 </resources>

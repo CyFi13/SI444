@@ -1,5 +1,10 @@
 package edu.usna.mobileos.a3_alvistristen
 
+/**
+ * Filename: ToDoAdapter.kt
+ * Author: MIDN Tristen Alvis (260102)
+ * Date: 6Apr2025
+ */
 import android.view.ContextMenu
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -9,15 +14,19 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * A custom ViewHolder to store information about ToDo objects in TextViews
+ */
 class TextItemViewHolder(view: View): RecyclerView.ViewHolder(view), View.OnCreateContextMenuListener {
     val textView: TextView = view.findViewById(R.id.todoTextView)
 
     /* sets the TextView text and onClickListener */
     fun bind(todo: ToDo) {
-        textView.text = todo.title + " " + todo.description + " " + todo.dateCreated
+        textView.text = todo.title
         textView.setOnCreateContextMenuListener(this)
     }
 
+    /* adds a context menu to each textview item */
     override fun onCreateContextMenu(
         menu: ContextMenu?,
         v: View?,
@@ -29,6 +38,9 @@ class TextItemViewHolder(view: View): RecyclerView.ViewHolder(view), View.OnCrea
     }
 }
 
+/**
+ * custom adapter for displaying the textView items in a recycler view
+ */
 class ToDoAdapter(val data: ArrayList<ToDo>) : RecyclerView.Adapter<TextItemViewHolder>() {
     /* returns number of items */
     override fun getItemCount() = data.size

@@ -8,7 +8,15 @@ import android.widget.Button
 import android.widget.EditText
 import java.util.Calendar
 import java.util.Date
+/**
+ * Filename: AddToDosActivity.kt
+ * Author: MIDN Tristen Alvis (260102)
+ * Date: 6Apr2025
+ */
 
+/**
+ * activity that allows users to create a new todo item. New information is returned to MainActivity.
+ */
 class AddToDosActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var title: EditText
     lateinit var description: EditText
