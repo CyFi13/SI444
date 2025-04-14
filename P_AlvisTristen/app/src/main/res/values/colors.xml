@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--Color Pallete from Coolors.co-->
+    <color name="Rich_Black">#0E131F</color>
+    <color name="Delft_Blue">#38405F</color>
+    <color name="English_Violet">#59546C</color>
+    <color name="Cadet_Gray">#8B939C</color>
+    <color name="Imperial_Red">#FF0035</color>
+</resources>
