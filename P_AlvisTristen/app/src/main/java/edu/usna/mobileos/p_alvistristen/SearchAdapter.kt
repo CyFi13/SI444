@@ -1,5 +1,8 @@
 package edu.usna.mobileos.p_alvistristen
 
+import android.graphics.Color
+import android.view.ContextMenu
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -11,29 +14,36 @@ import androidx.recyclerview.widget.RecyclerView
  * Description: provides functionality for search recycler view in SearchActivity
  */
 
-class TextItemViewHolder2(view: View): RecyclerView.ViewHolder(view), View.OnClickListener {
+class TextItemViewHolder2(view: View): RecyclerView.ViewHolder(view), View.OnCreateContextMenuListener{
     val textView: TextView = view.findViewById(R.id.textItemView)
 
     fun bind(item: Routine) {
         textView.text = item.title
-        textView.setOnClickListener(this)
+        textView.setOnCreateContextMenuListener(this)
     }
 
-    override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        menu?.add(adapterPosition, R.id.routine_details, 1, "Routine Details")
+        menu?.add(adapterPosition, R.id.select_routine, 2, "Select")
+        menu?.add(adapterPosition, R.id.delete_routine, 3, "Delete")
     }
 }
 
-class SearchpageAdapter(val data: ArrayList<Routine>): RecyclerView.Adapter<TextItemViewHolder>() {
+class SearchpageAdapter(val data: ArrayList<Routine>): RecyclerView.Adapter<TextItemViewHolder2>() {
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return data.size
     }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextItemViewHolder {
-        TODO("Not yet implemented")
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextItemViewHolder2 {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val view = layoutInflater
+            .inflate(R.layout.item_layout, parent, false)
+        return TextItemViewHolder2(view)
     }
-
-    override fun onBindViewHolder(holder: TextItemViewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: TextItemViewHolder2, position: Int) {
+        holder.bind(data[position])
     }
 }

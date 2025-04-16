@@ -19,17 +19,28 @@
         android:id="@+id/saved_routines"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintVertical_weight=".7"
         app:layout_constraintTop_toBottomOf="@id/search_bar"
-        app:layout_constraintBottom_toTopOf="@id/start_workout_button" />
+        app:layout_constraintBottom_toTopOf="@id/selected_routine_viewer" />
+
+    <TextView
+        android:id="@+id/selected_routine_viewer"
+        android:text="Select a Routine To Begin"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight=".1"
+        app:layout_constraintTop_toBottomOf="@id/saved_routines"
+        app:layout_constraintBottom_toTopOf="@id/start_workout_button"
+        />
 
     <Button
         android:text="@string/start"
         android:id="@+id/start_workout_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintVertical_weight=".2"
-        app:layout_constraintTop_toBottomOf="@id/saved_routines"
+        app:layout_constraintVertical_weight=".1"
+        app:layout_constraintTop_toBottomOf="@id/selected_routine_viewer"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
