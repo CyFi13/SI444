@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var routineListView: RecyclerView
     lateinit var routineListAdapter: HomepageAdapter
     lateinit var routineList: ArrayList<Routine>
+    val SETTINGS_FILE: String = ""  // TODO: Settings data stored in shared preferences
+    val STORED_ROUTINES_FILE: String = "" // TODO: maybe be able to load workouts from online into this file
+    val SAVED_ROUTINES_FILE: String = "saved_routines"
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
