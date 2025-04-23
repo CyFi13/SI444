@@ -13,6 +13,15 @@
         android:layout_height="0dp"
         app:layout_constraintVertical_weight=".1"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/routine_set"/>
+
+    <TextView
+        android:id="@+id/routine_set"
+        android:layout_width="match_parent"
+        android:text="Saved Routines"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight=".1"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
         app:layout_constraintBottom_toTopOf="@id/saved_routines"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -21,7 +30,7 @@
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintVertical_weight=".7"
-        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        app:layout_constraintTop_toBottomOf="@id/routine_set"
         app:layout_constraintBottom_toTopOf="@id/selected_routine_viewer" />
 
     <TextView
