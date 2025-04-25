@@ -6,12 +6,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.GestureDetector
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.widget.Button
 import android.widget.ScrollView
 import android.widget.SearchView
 import android.widget.TextView
+import androidx.core.view.GestureDetectorCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class SearchActivity : AppCompatActivity() {
@@ -22,6 +24,7 @@ class SearchActivity : AppCompatActivity() {
     lateinit var suggestedRoutines: ArrayList<Routine>
     lateinit var start_button: Button
     lateinit var searchView: SearchView
+    lateinit var mDectector: GestureDetectorCompat
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -51,6 +54,8 @@ class SearchActivity : AppCompatActivity() {
         }
         adapter = SearchpageAdapter(savedRoutines)
         recyclerView.adapter = adapter
+
+        mDectector = GestureDetectorCompat(this, MyGestureListener())
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
@@ -70,15 +75,25 @@ class SearchActivity : AppCompatActivity() {
         }
         return super.onContextItemSelected(item)
     }
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        mDectector.onTouchEvent(event)
+        return super.onTouchEvent(event)
+    }
 
-    // test ONFLING LATER
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        return when(event?.action) {
-            MotionEvent.ACTION_DOWN -> {
-                Log.d("SI444", "action was down")
-                true
-            }
-            else -> super.onTouchEvent(event)
+
+    private class MyGestureListener:GestureDetector.SimpleOnGestureListener() {
+        override fun onDown(event: MotionEvent): Boolean {
+            Log.d("SI444", "onDown: $event")
+            return true
+        }
+        override fun onFling(
+            e1: MotionEvent?,
+            e2: MotionEvent,
+            velocityX: Float,
+            velocityY: Float
+        ): Boolean {
+            Log.d("SI444", "onFling: $e1 $e2")
+            return true
         }
     }
 }
