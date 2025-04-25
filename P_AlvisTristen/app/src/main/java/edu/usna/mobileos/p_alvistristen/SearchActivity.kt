@@ -6,9 +6,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.DragEvent
 import android.view.GestureDetector
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.View
 import android.widget.Button
 import android.widget.ScrollView
 import android.widget.SearchView
@@ -55,7 +57,8 @@ class SearchActivity : AppCompatActivity() {
         adapter = SearchpageAdapter(savedRoutines)
         recyclerView.adapter = adapter
 
-        mDectector = GestureDetectorCompat(this, MyGestureListener())
+        //mDectector = GestureDetectorCompat(this, MyGestureListener())
+        textView.setOnDragListener(MyGestureListener())
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
@@ -75,25 +78,16 @@ class SearchActivity : AppCompatActivity() {
         }
         return super.onContextItemSelected(item)
     }
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        mDectector.onTouchEvent(event)
-        return super.onTouchEvent(event)
-    }
+//    override fun onTouchEvent(event: MotionEvent): Boolean {
+//        mDectector.onTouchEvent(event)
+//        return super.onTouchEvent(event)
+//    }
 
-
-    private class MyGestureListener:GestureDetector.SimpleOnGestureListener() {
-        override fun onDown(event: MotionEvent): Boolean {
-            Log.d("SI444", "onDown: $event")
+    private class MyGestureListener:View.OnDragListener {
+        override fun onDrag(v: View?, event: DragEvent?): Boolean {
+            Log.d("SI444", "$event")
             return true
         }
-        override fun onFling(
-            e1: MotionEvent?,
-            e2: MotionEvent,
-            velocityX: Float,
-            velocityY: Float
-        ): Boolean {
-            Log.d("SI444", "onFling: $e1 $e2")
-            return true
-        }
+
     }
 }
