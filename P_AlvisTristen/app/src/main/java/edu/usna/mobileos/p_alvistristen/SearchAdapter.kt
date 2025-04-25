@@ -33,7 +33,8 @@ class TextItemViewHolder2(view: View): RecyclerView.ViewHolder(view), View.OnCre
     }
 }
 
-class SearchpageAdapter(val data: ArrayList<Routine>): RecyclerView.Adapter<TextItemViewHolder2>() {
+class SearchpageAdapter(data: ArrayList<Routine>): RecyclerView.Adapter<TextItemViewHolder2>() {
+    var data: ArrayList<Routine> = data
     override fun getItemCount(): Int {
         return data.size
     }
@@ -45,5 +46,10 @@ class SearchpageAdapter(val data: ArrayList<Routine>): RecyclerView.Adapter<Text
     }
     override fun onBindViewHolder(holder: TextItemViewHolder2, position: Int) {
         holder.bind(data[position])
+    }
+
+    // implemented w/ assistance from geeksforgeeks and androiddeveloper.com
+    fun filterList(filterList: ArrayList<Routine>) {
+        data = filterList
     }
 }
