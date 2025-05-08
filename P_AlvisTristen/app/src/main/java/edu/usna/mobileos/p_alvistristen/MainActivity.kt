@@ -24,6 +24,8 @@ import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import java.io.IOException
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
@@ -45,26 +47,18 @@ class MainActivity : AppCompatActivity(), RoutineDialogReturnInterface {
 
         // setup homepage recyclerView
         routineListView = findViewById(R.id.homepage_recyclerView)
-        suggestedRoutineList = java.util.ArrayList()
-        for(i in (0..30)) { // testing
-            val set = ArrayList<Set>()
-            for(j in 0..10) {
-                val exercise = Exercise("test$j", "description$j")
-                val s = Set(exercise, j)
-                set.add(s)
-            }
-            val routine = Routine("test" + i, "test", set)
-            suggestedRoutineList.add(routine)
-        }
-        routineListAdapter = HomepageAdapter(suggestedRoutineList)
-        routineListView.adapter = routineListAdapter
+
 
         // initialize saved routines array
         savedRoutineList = getRoutineListFromFile(SAVED_ROUTINES_FILE)
+        suggestedRoutineList = ArrayList()
+        loadRoutines()
+
+        routineListAdapter = HomepageAdapter(suggestedRoutineList)
+        routineListView.adapter = routineListAdapter
 
         // setup workout button
         val button: Button = findViewById(R.id.workout_button)
-
         button.setOnClickListener {
             val searchActivityIntent = Intent(this, SearchActivity::class.java)
             searchActivityIntent.putExtra("saved_routines", savedRoutineList)
@@ -72,7 +66,6 @@ class MainActivity : AppCompatActivity(), RoutineDialogReturnInterface {
             startActivity(searchActivityIntent)
             finish()
         }
-
     }
 
     override fun onStop() {
@@ -152,6 +145,24 @@ class MainActivity : AppCompatActivity(), RoutineDialogReturnInterface {
 
     override fun onDialogPositiveClick(item: Routine) {
         savedRoutineList.add(item)
+    }
+
+    /* Uses the Json library to read through data in a json file and parse routine information
+    * from it. The file containing preloaded workouts is stored in a json file in the raw directory
+    */
+    fun loadRoutines() {
+        val jsonString = readjsonFile(this, R.raw.workoutroutines)
+        val routineList = Json.decodeFromString<ArrayList<Routine>>(jsonString)
+        suggestedRoutineList = (routineList)
+        Log.i("SI444", jsonString)
+        Log.i("SI444", routineList.toString())
+    }
+
+    /* returns a string of data in json format */
+    fun readjsonFile(context: Context, fileId: Int): String {
+        return context.resources.openRawResource(fileId)
+            .bufferedReader()
+            .use { it.readText() }
     }
 }
 interface RoutineDialogReturnInterface {

@@ -1,44 +1,214 @@
-{
-    "routine1": {
+[
+    {
         "title": "Full Body Quick Hit",
         "description": "Full body calisthenic workout that can be completed in 15 minutes with no equipment",
-        "routine": {
-            "set1": {
+        "routine": [
+            {
                 "exercise": {
                     "title": "Jumping Jacks",
                     "description": "30 seconds of jumping jacks"
                 },
                 "repCount": "1"
             },
-            "set2": {
+            {
                 "exercise": {
                     "title": "Push-ups",
                     "description": "12 reps of push-ups"
                 },
                 "repCount": "12"
             },
-            "set3": {
+            {
                 "exercise": {
                     "title": "Squats",
                     "description": "15 reps of squats"
                 },
                 "repCount": "15"
             },
-            "set4": {
+            {
                 "exercise": {
                     "title": "Plank",
                     "description": "30 seconds of a plank"
                 },
                 "repCount": "1"
             },
-            "set5": {
+            {
                 "exercise": {
                     "title": "Repeat",
                     "description": "Repeat Full Workout 3x"
                 },
                 "repCount": "3"
             }
-        }
-
+        ]
+    },
+    {
+        "title": "HIIT (High-Intensity Interval Training)",
+        "description": "Full body calisthenic workout that can be completed in 15 minutes with no equipment",
+        "routine": [
+            {
+                "exercise": {
+                    "title": "Burpees",
+                    "description": "30 seconds of burpees"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Jump squats",
+                    "description": "30 seconds of jump squats"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Plank to push-up",
+                    "description": "30 seconds of plank to push-ups"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Jumping lunges",
+                    "description": "30 seconds of jumping lunges"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Sit-ups",
+                    "description": "30 seconds of sit-ups"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Repeat",
+                    "description": "Repeat 3 rounds, 30 seconds on, 30 seconds off"
+                },
+                "repCount": "3"
+            },
+            {
+                "exercise": {
+                    "title": "Cooldown",
+                    "description": "3 min walk + static stretch"
+                },
+                "repCount": "1"
+            }
+        ]
+    },
+    {
+        "title": "Mobility & Core",
+        "description": "Workout that emphasizes hitting the core muscles",
+        "routine": [
+            {
+                "exercise": {
+                    "title": "leg raises",
+                    "description": "15 leg raises"
+                },
+                "repCount": "15"
+            },
+            {
+                "exercise": {
+                    "title": "sec plank",
+                    "description": "30 seconds of plank"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "bird-dogs (each side)",
+                    "description": "10 birds-dogs"
+                },
+                "repCount": "10"
+            },
+            {
+                "exercise": {
+                    "title": "glute bridges",
+                    "description": "10 glute bridges"
+                },
+                "repCount": "10"
+            },
+            {
+                "exercise": {
+                    "title": "Cooldown",
+                    "description": "10 minute yoga flow"
+                },
+                "repCount": "1"
+            }
+        ]
+    },
+    {
+        "title": "Cardio Burn",
+        "description": "Cardio workout that implements endurance and speed",
+        "routine": [
+            {
+                "exercise": {
+                    "title": "steady-state cycling/running",
+                    "description": "20 minute steady-state"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "sprint intervals",
+                    "description": "5 minutes sprint intervals"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Cooldown",
+                    "description": "5 minute slow pace and stretching calves/quads"
+                },
+                "repCount": "1"
+            }
+        ]
+    },
+    {
+        "title": "Upper Body Focus",
+        "description": "Upper body focused website",
+        "routine": [
+            {
+                "exercise": {
+                    "title": "push-ups",
+                    "description": "10 push ups"
+                },
+                "repCount": "10"
+            },
+            {
+                "exercise": {
+                    "title": "bicep curls",
+                    "description": "10 bicep curls"
+                },
+                "repCount": "10"
+            },
+            {
+                "exercise": {
+                    "title": "tricep dips",
+                    "description": "10 tricep dips"
+                },
+                "repCount": "10"
+            },
+            {
+                "exercise": {
+                    "title": "shoulder presses",
+                    "description": "10 shoulder presses"
+                },
+                "repCount": "10"
+            },
+            {
+                "exercise": {
+                    "title": "Repeat",
+                    "description": "repeat 3 times"
+                },
+                "repCount": "3"
+            },
+            {
+                "exercise": {
+                    "title": "Cooldown",
+                    "description": "Stretch arms, shoulders, neck"
+                },
+                "repCount": "1"
+            }
+        ]
     }
-}
+]

@@ -61,13 +61,18 @@ class WorkoutActivity : AppCompatActivity(), View.OnClickListener {
         for(set in routine.routine) {
             val textView = TextView(this)
             textView.layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, 100)
-            textView.text = set.exercise.title
+            textView.text = "${set.exercise.title} (${set.repCount} sets)\n\t${set.exercise.description}"
             layout.addView(textView)
        }
     }
 
     override fun onClick(v: View?) {
-        timer = timerText.text.toString().toInt()
+        var timer_val = timerText.text.toString()
+        if(timer_val != "") {
+            timer = timer_val.toInt()
+        }
+        else
+            timer = 0
         timerText.clearFocus()
         if(timer != 0){
             val thread = object : Thread() {

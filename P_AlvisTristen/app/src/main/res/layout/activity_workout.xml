@@ -47,6 +47,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:backgroundTint="@color/Delft_Blue"
+        android:text="Start Timer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/routine_instructions_view"
         app:layout_constraintStart_toEndOf="@id/timer"
