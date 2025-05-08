@@ -1,36 +1,60 @@
 package edu.usna.mobileos.p_alvistristen
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.VibratorManager
+import android.text.Editable
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 
-class WorkoutActivity : AppCompatActivity() {
+class WorkoutActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var layout: LinearLayout
     lateinit var routine: Routine
+    lateinit var timerText: EditText
+    var timer: Int = 0  // timer in seconds
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workout)
         // set up main viewing window
         layout = findViewById(R.id.routine_layout)
 
-        // TODO: recieve intent containing routine data from searchActivity and place that into list
-        // test
-        val sets = ArrayList<Set>()
-        for(i in (0..50)) { // testing recyclerView
-            var exercise: Exercise = Exercise("title", "description")
-            var set: Set = Set(exercise, 10)
-            sets.add(set)
-        }
-        routine = Routine("test", "", sets)
+        routine = intent.getSerializableExtra("routine") as Routine
+        Log.i("SI444", "Routine being used is $routine")
 
-        // TODO: build up the scroll view with linear layouts to display the workout instructions
+        // create scrollview with instructions
         buildInstructions()
 
+        timerText = findViewById(R.id.timer)
+
+        val button: Button = findViewById(R.id.timer_button)
+        button.setOnClickListener(this)
+    }
+
+    /* Inflates the settings options menu on startup */
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.settings_menu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.go_back_menu -> {
+                val backIntent = Intent(this, MainActivity::class.java)
+                startActivity(backIntent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun buildInstructions() {
@@ -40,5 +64,21 @@ class WorkoutActivity : AppCompatActivity() {
             textView.text = set.exercise.title
             layout.addView(textView)
        }
+    }
+
+    override fun onClick(v: View?) {
+        timer = timerText.text.toString().toInt()
+        timerText.clearFocus()
+        if(timer != 0){
+            val thread = object : Thread() {
+                override fun run() {
+                    for(i in timer downTo 0) {
+                        runOnUiThread{ timerText.setText("$i") }
+                        sleep(1000)
+                    }
+                }
+            }
+            thread.start()
+        }
     }
 }

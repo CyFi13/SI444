@@ -1,8 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.P_AlvisTristen" parent="Theme.Material3.DayNight">
+    <style name="Base.Theme.P_AlvisTristen" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- Navigation Bar Color -->
+        <item name="android:navigationBarColor">@color/Cadet_Gray</item>
+
+        <item name="android:statusBarColor">@color/Cadet_Gray</item>
+
+        <item name="colorPrimary">@color/Cadet_Gray</item>
+        <item name="android:textColor">@color/Rich_Black</item>
+        <item name="colorOnPrimary">@color/Rich_Black</item>
+
+        <item name="popupMenuStyle">@color/Delft_Blue</item>
+        <item name="popupMenuBackground">@color/Delft_Blue</item>
     </style>
 
     <style name="Theme.P_AlvisTristen" parent="Base.Theme.P_AlvisTristen" />

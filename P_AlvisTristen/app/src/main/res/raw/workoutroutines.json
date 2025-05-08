@@ -1,0 +1,44 @@
+{
+    "routine1": {
+        "title": "Full Body Quick Hit",
+        "description": "Full body calisthenic workout that can be completed in 15 minutes with no equipment",
+        "routine": {
+            "set1": {
+                "exercise": {
+                    "title": "Jumping Jacks",
+                    "description": "30 seconds of jumping jacks"
+                },
+                "repCount": "1"
+            },
+            "set2": {
+                "exercise": {
+                    "title": "Push-ups",
+                    "description": "12 reps of push-ups"
+                },
+                "repCount": "12"
+            },
+            "set3": {
+                "exercise": {
+                    "title": "Squats",
+                    "description": "15 reps of squats"
+                },
+                "repCount": "15"
+            },
+            "set4": {
+                "exercise": {
+                    "title": "Plank",
+                    "description": "30 seconds of a plank"
+                },
+                "repCount": "1"
+            },
+            "set5": {
+                "exercise": {
+                    "title": "Repeat",
+                    "description": "Repeat Full Workout 3x"
+                },
+                "repCount": "3"
+            }
+        }
+
+    }
+}

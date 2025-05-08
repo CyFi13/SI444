@@ -4,30 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Cadet_Gray"
     tools:context=".WorkoutActivity">
 
     <ScrollView
         android:id="@+id/routine_instructions_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/Cadet_Gray"
         app:layout_constraintBottom_toTopOf="@id/timer"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_weight="0.8" >
 
         <LinearLayout
+            android:background="@color/Cadet_Gray"
             android:id="@+id/routine_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
 
-    <TextView
+    <EditText
         android:id="@+id/timer"
-        android:text="00:00"
+        android:hint="90"
         android:textSize="50sp"
         android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:inputType="number"
+        android:background="@color/Cadet_Gray"
+        android:textColor="@color/Imperial_Red"
         app:layout_constraintTop_toBottomOf="@id/routine_instructions_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +46,7 @@
         android:id="@+id/timer_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:backgroundTint="@color/Delft_Blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/routine_instructions_view"
         app:layout_constraintStart_toEndOf="@id/timer"

@@ -24,16 +24,19 @@ import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
+import java.io.IOException
+import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 
-val SETTINGS_FILE: String = ""  // TODO: Settings data stored in shared preferences
-val STORED_ROUTINES_FILE: String = "stored_routines" // TODO: maybe be able to load workouts from online into this file
-val SAVED_ROUTINES_FILE: String = "saved_routines"
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(), RoutineDialogReturnInterface {
     lateinit var routineListView: RecyclerView
     lateinit var routineListAdapter: HomepageAdapter
     lateinit var suggestedRoutineList: ArrayList<Routine>  // TODO: find a way to get these from online
-    lateinit var savedRoutineList: ArrayList<Routine>
+    var savedRoutineList: ArrayList<Routine> = ArrayList()
+    val SETTINGS_FILE: String = ""  // TODO: Settings data stored in shared preferences
+    val STORED_ROUTINES_FILE: String = "stored_routines" // TODO: maybe be able to load workouts from online into this file
+    val SAVED_ROUTINES_FILE: String = "saved_routines"
 
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,29 +45,44 @@ class MainActivity : AppCompatActivity() {
 
         // setup homepage recyclerView
         routineListView = findViewById(R.id.homepage_recyclerView)
-        suggestedRoutineList = ArrayList()
-        for(i in (0..30)) { // testing recyclerView
-            var set = ArrayList<Set>()
-            var routine: Routine = Routine("test" + i, "test", set)
+        suggestedRoutineList = java.util.ArrayList()
+        for(i in (0..30)) { // testing
+            val set = ArrayList<Set>()
+            for(j in 0..10) {
+                val exercise = Exercise("test$j", "description$j")
+                val s = Set(exercise, j)
+                set.add(s)
+            }
+            val routine = Routine("test" + i, "test", set)
             suggestedRoutineList.add(routine)
         }
         routineListAdapter = HomepageAdapter(suggestedRoutineList)
         routineListView.adapter = routineListAdapter
+
+        // initialize saved routines array
+        savedRoutineList = getRoutineListFromFile(SAVED_ROUTINES_FILE)
 
         // setup workout button
         val button: Button = findViewById(R.id.workout_button)
 
         button.setOnClickListener {
             val searchActivityIntent = Intent(this, SearchActivity::class.java)
+            searchActivityIntent.putExtra("saved_routines", savedRoutineList)
+            searchActivityIntent.putExtra("suggested_routines", suggestedRoutineList)
             startActivity(searchActivityIntent)
+            finish()
         }
 
     }
 
-    /* Inflates the settings options menu on startup */
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.settings_menu, menu)
-        return true
+    override fun onStop() {
+        saveRoutineListToFile(SAVED_ROUTINES_FILE, savedRoutineList)
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        saveRoutineListToFile(SAVED_ROUTINES_FILE, savedRoutineList)
+        super.onDestroy()
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
@@ -75,28 +93,37 @@ class MainActivity : AppCompatActivity() {
 
         when (item.itemId) {
             R.id.routine_details -> {
-                Log.i("SI444", "TEST1")
-                val dialog = RoutineDetailsDialog(routine)
-                Log.i("SI444", "TEST2")
+                val dialog = RoutineDetailsDialog(routine, this)
                 dialog.show(supportFragmentManager, "RoutineDetailsDialog")
-                Log.i("SI444", "TEST3")
             }
             R.id.save_routine -> {
-                saveRoutineToFile(SAVED_ROUTINES_FILE, routine)
+                savedRoutineList.add(routine)
             }
         }
         return super.onContextItemSelected(item)
     }
-    fun saveRoutineToFile(filename: String, obj: Routine) {
+    fun saveRoutineListToFile(filename: String, obj: ArrayList<Routine>) {
         ObjectOutputStream(openFileOutput(filename, MODE_PRIVATE)).use {
             it.writeObject(obj)
         }
     }
 
+    fun getRoutineListFromFile(filename: String): ArrayList<Routine> {
+        try {
+            ObjectInputStream(openFileInput(filename)).use {
+                return it.readObject() as ArrayList<Routine>
+            }
+        }
+        catch(e: IOException) {
+            return ArrayList<Routine>()
+        }
+
+    }
+
     /* Class for dialog window that appears when users click on items in homepage recycler */
-    class RoutineDetailsDialog(val item: Routine): DialogFragment(), DialogInterface.OnClickListener {
+    class RoutineDetailsDialog(val item: Routine, var myInterface: RoutineDialogReturnInterface):
+        DialogFragment(), DialogInterface.OnClickListener {
         override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-            Log.i("SI444", "TEST4")
             val builder = AlertDialog.Builder(activity)
 
             builder.setTitle(item.title)
@@ -107,19 +134,27 @@ class MainActivity : AppCompatActivity() {
             return builder.create()
         }
 
-        override fun onClick(dialog: DialogInterface?, which: Int) {
+        override fun onClick(dialog: DialogInterface?, id: Int) {
+            var buttonName = ""
             when(id) {
                 Dialog.BUTTON_POSITIVE -> { // SAVE button
-                    // MAKE AN INTENT FOR THIS
+                    buttonName = "positive"
+                    myInterface.onDialogPositiveClick(item) // pass data back to main
                 }
                 Dialog.BUTTON_NEGATIVE -> { // CANCEL button
+                    buttonName = "negative"
                     // CANCEL: CLOSE AND DO NOTHING
                 }
             }
+            Log.i("SI444", "You clicked $buttonName button")
         }
     }
+
+    override fun onDialogPositiveClick(item: Routine) {
+        savedRoutineList.add(item)
+    }
 }
-
-
-
+interface RoutineDialogReturnInterface {
+    fun onDialogPositiveClick(item: Routine)
+}
 

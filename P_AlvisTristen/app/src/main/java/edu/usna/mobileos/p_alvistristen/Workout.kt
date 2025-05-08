@@ -10,10 +10,10 @@ data class Routine(var title: String, var description: String, var routine: Arra
 /**
  * Stores data for a set
  */
-data class Set(var exercise: Exercise, var repCount: Int)
+data class Set(var exercise: Exercise, var repCount: Int): Serializable
 
 /**
  * Stores data for a single exercise
  */
-data class Exercise(var title: String, var description: String, var videoLink: String = "")
+data class Exercise(var title: String, var description: String, var videoLink: String = ""): Serializable
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Cadet_Gray"
     tools:context=".SearchActivity">
 
     <android.widget.SearchView
@@ -11,6 +12,7 @@
         android:title="@string/search"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/Cadet_Gray"
         app:layout_constraintVertical_weight=".1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/routine_set"/>
@@ -20,6 +22,7 @@
         android:layout_width="match_parent"
         android:text="Saved Routines"
         android:layout_height="0dp"
+        android:background="@color/Cadet_Gray"
         app:layout_constraintVertical_weight=".1"
         app:layout_constraintTop_toBottomOf="@id/search_bar"
         app:layout_constraintBottom_toTopOf="@id/saved_routines"/>
@@ -28,8 +31,9 @@
         android:id="@+id/saved_routines"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/Cadet_Gray"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintVertical_weight=".7"
+        app:layout_constraintVertical_weight=".5"
         app:layout_constraintTop_toBottomOf="@id/routine_set"
         app:layout_constraintBottom_toTopOf="@id/selected_routine_viewer" />
 
@@ -38,6 +42,7 @@
         android:text="Select a Routine To Begin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/Cadet_Gray"
         app:layout_constraintVertical_weight=".1"
         app:layout_constraintTop_toBottomOf="@id/saved_routines"
         app:layout_constraintBottom_toTopOf="@id/start_workout_button"
@@ -45,10 +50,12 @@
 
     <Button
         android:text="@string/start"
+        android:textSize="60sp"
         android:id="@+id/start_workout_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintVertical_weight=".1"
+        android:backgroundTint="@color/Delft_Blue"
+        app:layout_constraintVertical_weight=".2"
         app:layout_constraintTop_toBottomOf="@id/selected_routine_viewer"
         app:layout_constraintBottom_toBottomOf="parent"
         />
