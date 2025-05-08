@@ -164,36 +164,70 @@
         ]
     },
     {
-        "title": "Upper Body Focus",
-        "description": "Upper body focused website",
+        "title": "Tabata",
+        "description": "HIIT protocol consisting of 8 rounds of 20 seconds of intense exercise followed by 10 seconds of rest",
         "routine": [
             {
                 "exercise": {
-                    "title": "push-ups",
-                    "description": "10 push ups"
+                    "title": "Push-ups",
+                    "description": "4 minutes of pushups (8 by 20 seconds on, 10 seconds off)"
                 },
-                "repCount": "10"
+                "repCount": "1"
             },
             {
                 "exercise": {
-                    "title": "bicep curls",
-                    "description": "10 bicep curls"
+                    "title": "Squat jumps",
+                    "description": "4 minutes of squat jumps (8 by 20 seconds on, 10 seconds off)"
                 },
-                "repCount": "10"
+                "repCount": "1"
             },
             {
                 "exercise": {
-                    "title": "tricep dips",
-                    "description": "10 tricep dips"
+                    "title": "Russian twists",
+                    "description": "4 minutes of russian twists (8 by 20 seconds on, 10 seconds off)"
                 },
-                "repCount": "10"
+                "repCount": "1"
             },
             {
                 "exercise": {
-                    "title": "shoulder presses",
-                    "description": "10 shoulder presses"
+                    "title": "Bicycle crunches",
+                    "description": "4 minutes of bicyle crunches (8 by 20 seconds on, 10 seconds off)"
                 },
-                "repCount": "10"
+                "repCount": "1"
+            }
+        ]
+    },
+    {
+        "title": "Dumbbell Strength",
+        "description": "This workout utilizes dumbbells to provide a full body workout",
+        "routine": [
+            {
+                "exercise": {
+                    "title": "DB deadlifts",
+                    "description": "Weights in hands, hinge at hips, flat back, stand tall"
+                },
+                "repCount": "8"
+            },
+            {
+                "exercise": {
+                    "title": "DB shoulder press",
+                    "description": "Weights at shoulders, press up, control down"
+                },
+                "repCount": "8"
+            },
+            {
+                "exercise": {
+                    "title": "DB rows",
+                    "description": "Bent over, pull weights toward ribs"
+                },
+                "repCount": "8"
+            },
+            {
+                "exercise": {
+                    "title": "DB lunges",
+                    "description": "Step forward or backward, knees at 90°, alternate legs."
+                },
+                "repCount": "8"
             },
             {
                 "exercise": {
@@ -201,11 +235,167 @@
                     "description": "repeat 3 times"
                 },
                 "repCount": "3"
+            }
+        ]
+    },
+    {
+        "title": "EMOM",
+        "description": "Every minute on the minute workout that utilizes a cycle of push-ups, sit-ups, and bodyweight squats to challenge you",
+        "routine": [
+            {
+                "exercise": {
+                    "title": "Push-Ups",
+                    "description": ""
+                },
+                "repCount": "10"
             },
             {
                 "exercise": {
-                    "title": "Cooldown",
-                    "description": "Stretch arms, shoulders, neck"
+                    "title": "Sit-Ups",
+                    "description": ""
+                },
+                "repCount": "10"
+            },
+            {
+                "exercise": {
+                    "title": "Bodyweight Squats",
+                    "description": ""
+                },
+                "repCount": "10"
+            },
+            {
+                "exercise": {
+                    "title": "ENOM Repeat",
+                    "description": "Start the above 3 exercises at the start of each minute"
+                },
+                "repCount": "10"
+            }
+        ]
+    },
+    {
+        "title": "Arm Burner",
+        "description": "Read the title",
+        "routine": [
+            {
+                "exercise": {
+                    "title": "Dumbbell Curls",
+                    "description": ""
+                },
+                "repCount": "12"
+            },
+            {
+                "exercise": {
+                    "title": "Overhead Triceps Extensions (single or two hands)",
+                    "description": ""
+                },
+                "repCount": "12"
+            },
+            {
+                "exercise": {
+                    "title": "Plank Hold",
+                    "description": "30 second plank hold"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Repeat",
+                    "description": "Repeat above 3 times"
+                },
+                "repCount": "3"
+            }
+        ]
+    },
+    {
+        "title": "Jump Rope Workout",
+        "description": "Cardio workout that utilizes a jump rope",
+        "routine": [
+            {
+                "exercise": {
+                    "title": "Jump Rope",
+                    "description": "1 minute of jump roping"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Repeat",
+                    "description": "Repeat 10-15 times, 30 seconds of rest in between"
+                },
+                "repCount": "15"
+            }
+        ]
+    },
+    {
+        "title": "Yoga Flow",
+        "description": "Yoga workout to help connect you to the gods",
+        "routine": [
+            {
+                "exercise": {
+                    "title": "Downward Dog",
+                    "description": "Hips high, heels pressing down."
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Cobra",
+                    "description": "Lie on belly, press chest up with hands."
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Cat-Cow",
+                    "description": "On hands/knees, alternate arching and rounding spine."
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Child’s Pose",
+                    "description": "Sit back on heels, arms stretched."
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Pigeon Stretch",
+                    "description": "One leg bent in front, other straight behind."
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Seated Forward Fold",
+                    "description": "Reach for toes while sitting."
+                },
+                "repCount": "1"
+            }
+        ]
+    },
+    {
+        "title": "Running Intervals",
+        "description": "Runnning workout that utilizes intervals to build speed, strength, and stamina",
+        "routine": [
+            {
+                "exercise": {
+                    "title": "Warm-Up Jog",
+                    "description": "5 minutes of a light jog"
+                },
+                "repCount": "1"
+            },
+            {
+                "exercise": {
+                    "title": "Intervals",
+                    "description": "30 second sprint, 90 second walk"
+                },
+                "repCount": "8"
+            },
+            {
+                "exercise": {
+                    "title": "Cooldown Walk",
+                    "description": "5 minute cooldown walk"
                 },
                 "repCount": "1"
             }
